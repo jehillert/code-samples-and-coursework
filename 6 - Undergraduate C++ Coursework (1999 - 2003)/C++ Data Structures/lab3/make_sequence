@@ -1,0 +1,21 @@
+# Author: John Hillert
+# Date: 9/9/02
+# Description: This is a makefile for the lab3 sequence class.
+# It puts together and compiles sequence1.cpp, sequence1.h, driver.cpp, 
+
+CXX = g++
+CXXFLAGS = -g -c
+LD = g++
+LDFLAGS = -g -Wl,-LD_MSG:off=84
+ 
+lab3: sequence1.o sequence_test.o  
+	${LD} ${LDFLAGS} sequence1.o sequence_test.o -o seqtest 
+
+sequence1.o: sequence1.h sequence1.cpp 
+	${CXX} ${CXXFLAGS} sequence1.cpp 
+
+sequence_test.o: sequence_test.cpp sequence1.h
+	${CXX} ${CXXFLAGS} sequence_test.cpp 
+
+clean:
+	

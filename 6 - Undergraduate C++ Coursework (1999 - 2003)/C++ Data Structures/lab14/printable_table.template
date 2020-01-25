@@ -1,0 +1,19 @@
+// FILE: printable_table.cpp
+// PROGRAMMER: John Hillert
+// LAST UPDATED: 11/29/02
+// CLASS IMPLEMENTED: printable_table.cpp (see printable_table.h for 
+// documentation)
+
+#include <iostream>
+#include "printable_table.h"
+
+namespace main_savitch_12A
+{
+    template <class RecordType>
+    void printable_table<RecordType>::print_table()
+    {
+        for(int i=0; i < CAPACITY; i++)
+        {
+            if(data[i].key != NEVER_USED && data[i].key != PREVIOUSLY_USED)
+            std::cout << data[i] << endl;
+   

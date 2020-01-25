@@ -1,0 +1,18 @@
+# Author: John Hillert
+# Date: 10/29/02
+# Description: This is a makefile for lab10, part1.
+# It compiles part1.cpp 
+
+CXX = g++
+CXXFLAGS = -g -c
+LD = g++
+LDFLAGS = -g -Wl,-LD_MSG:off=84
+ 
+lab10: part1.o 
+	${LD} ${LDFLAGS} part1.o -o part1 
+
+part1.o: part1.cpp 
+	${CXX} ${CXXFLAGS} part1.cpp 
+
+clean:
+	rm -

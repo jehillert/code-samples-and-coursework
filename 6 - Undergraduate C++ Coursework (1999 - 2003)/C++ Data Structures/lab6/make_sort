@@ -1,0 +1,18 @@
+# Author: John Hillert
+# Date: 9/30/02
+# Description: This is a makefile for lab6.
+# It compiles driver.cpp, a program that includes node2.h 
+
+CXX = g++
+CXXFLAGS = -g -c
+LD = g++
+LDFLAGS = -g -Wl,-LD_MSG:off=84
+ 
+lab6: driver.o 
+	${LD} ${LDFLAGS} driver.o -o sort 
+
+driver.o: driver.cpp 
+	${CXX} ${CXXFLAGS} driver.cpp 
+
+clean:
+	rm 

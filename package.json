@@ -1,0 +1,11 @@
+{
+  "name": "planner-for-transactional-attorneys",
+  "version": "1.0.0",
+  "description": "Coding coursework and samples from hobby programming",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jehillert/code-snippits-and-prior-coursework"
+  },
+  "author": "John Hillert",
+  "license": "MIT"
+}

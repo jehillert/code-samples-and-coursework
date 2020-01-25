@@ -1,0 +1,50 @@
+Assignment 6 - Questions
+John Hillert
+
+1. Q: Why don't we have to compile an implementation file for node?
+   A: An include directive at the end of the header makes it part
+      of the header so it doesn't need to be compiled separately.
+      You only compile separately when you have an implementation 
+      file that is independent from the header so that it requires
+      an include "header.h" itself.  In this case the header is
+      part of the driver through include and the implementation is
+      part of the driver through include so they all get compiled 
+      as one file.
+
+2. Q: Why do we have const and non-const versions of data() and link()?
+   A: A member function can serve as part of a parameter
+      to another function (node1.data() returns an Item). 
+      If a function parameter is a nonconstant node then you need 
+      a member function without const.  If it needs a const node then 
+      you need a const node.  More specifically, if you want to use 
+      these member functions to change a node's address or data field 
+      then you need a version without constant, and if you don't want 
+      them changing things then you need a version with const, so that 
+      the compiler can tell the other constant functions, that they 
+      serve as a parameter for, that it is safe to do so if the const 
+      version of that member is used. 
+
+3. Q: Why does list_locate have two template parameters?
+   A: When you make a function a template function variables that 
+      don't use Item no longer have the benefit of type conversion.
+      The way to fix that is to give a template parameter for the
+      sizetype so that the computer will instantiate the size_type parameter,
+      which is just as good as type casting.
+
+4. Q: How does the constructor for node work?
+   A: It accepts an initial data value for the node of type Item
+      and an initial link address, and sets the data_field and
+      link_field equal to them.  If you don't put in the initial
+      link or either of the two parameters there are two defaults.
+      The default for init_data is the default constructor for the 
+      data type described by Item (which is zero in many cases). 
+      The default for init_link is NULL.   
+
+5. Q: What is the purpose of NodePtr (see list_locate and list_search)?
+   A: In list_locate and list_search you need two versions, a const
+      function and a nonconstant one, so that the return values can
+      return values that will or will not change other values,
+      depending on the program's needs. If you use a 
+      template parameter you only need one function to instantiate 
+      either const pointer variable or a nonconstant one; depending
+      on what you feed it as parameters it will ta

@@ -1,0 +1,18 @@
+# Author: John Hillert
+# Date: 11/19/02 
+# Description: This is a makefile for lab13, lesson 2.
+# It puts together and compiles driver.cpp
+
+CXX = g++
+CXXFLAGS = -g -c
+LD = g++
+LDFLAGS = -g -Wl,-LD_MSG:off=84
+ 
+lab13: driver2.o
+	${LD} ${LDFLAGS} driver2.o -o lesson2 
+
+driver2.o: driver2.cpp 
+	${CXX} ${CXXFLAGS} driver2.cpp 
+
+clean:
+	rm -

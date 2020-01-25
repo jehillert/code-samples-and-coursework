@@ -1,0 +1,41 @@
+John Hillert
+Assignment 4, Part 1
+Data Structures
+
+What is the size of:
+
+    integer: 4 
+    float: 4 
+    double: 8 
+    struct data: 12 
+    char: 1 for each letter 
+
+What is the size of the pointer? 4
+
+Does the size of the pointer vary based on the type of item pointed to?
+No.  The pointer includes the information required to find the memory address.
+
+Are the memory addresses assigned contiguously? It looks like the double values are assigned contiguously since the difference between the double memory 
+allocation and the float's allocation is the size of the double. I'm not sure
+about the others however, but I would assume so.
+
+Does the memory allocation vary between the two compilers?
+No   
+
+Last question: difference between syntx.
+
+1. iptr = &number
+   
+   number is a normal variable and the way to get to the memory address for
+   normal variables, such as when you want a reference parameter in a function,
+   is to use the & sign.
+
+2. iptr = nums
+
+   No & sign is needed in this case because arrays are already pointers that
+   point to the beginning of an array.
+
+3. iptr = *num2D
+
+   A 2D array is a pointer to an array of pointers, with each pointer pointing
+   to the beginning of an array. So this says find the address of the pointer

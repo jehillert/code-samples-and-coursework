@@ -1,0 +1,14 @@
+CXX = g++
+CXXFLAGS = -g -c
+LD = g++
+LDFLAGS = -g -Wl -LD_MSG:off=84
+
+
+lab1: lab1.o 
+	${LD} ${LDFLAGS} lab1.o -o lab1
+
+lab1.o: lab1.cpp
+	${CXX} ${CXXFLAGS} lab1.cpp
+
+clean:
+	rm -rf l

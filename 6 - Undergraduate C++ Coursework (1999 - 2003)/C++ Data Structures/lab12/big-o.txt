@@ -1,0 +1,51 @@
+
+Sequence Class:
+
+1. Size is O(1) constant time code.  It returns only 1 value in it's 
+   implementaiton.
+2. Insert and attach are linear O(n) time.  This is because they have 
+   a bunch of lines that will always be executed (a constant amount),
+   plus a for loop that is a linear term dependent on the value
+   (used - current_index).  The linear term is more important than the
+   constant one for larger values.
+3. remove_current is O(n) linear time.  It has a for loop which is dependent
+   on (used - current_index).
+
+Dynamic array would affect the above because of the reserve function that get's
+used to expand the capactiy when insert and attach are used for a full array. 
+One thing to note is that the number of iterations increases, but the big-o
+notation will still remain linear because the main contribution is the linear
+term that results from the copy(a,b,c) function.
+
+String sequence class (from assignment):
+
+1. Size would be constant O(1) time since it only has to return current_length.
+2. Insert would be linear O(n) notation, but would consist of several different
+   terms.  One term is for the expand function, another is for moving all the 
+   pointers (n is based on (used - current_index)), and a final one is for
+   strcpy(). The same goes for attach.
+3. remove_current is O(n) time because of a for loop based on (used - 
+   current_index).
+
+Linked List toolkit: 
+
+1. This is O(1) constant time because all it needs to do is declare a new
+   node, which itself is a constant time process.
+2. list_insert is O(1) constant time too because it has only 4 or 5 executions,
+   and no loops.
+3. list_search is linear time O(n) with the worst case being 
+   dependent on the length of the list.  This is because the for loop in 
+   the function must travel through the list.
+4. list_remove is constant O(1) time for the same reasons as 1 and 2 except
+   that it is deleting instead of creating.
+
+Binary Search Tree:
+
+1. For an unbalanced tree the worst case is that all of the nodes are in one
+   long branch.  So this would be linear time O(n).
+   
+
+
+   If the tree is balanced than the time is logarithmic O(log n), for the 
+   reason that each branch is a midpoint, this makes the depth of the tree
+   proportional t

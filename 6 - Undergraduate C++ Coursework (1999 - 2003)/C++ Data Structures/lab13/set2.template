@@ -1,0 +1,38 @@
+// FILE: set2.cpp
+// PROGRAMMER: John Hillert
+// LAST UPDATED: 11/19/02 
+// CLASS IMPLEMENTED: set (see set.h for documentation)
+
+#include "set2.h"
+#include <iostream>
+
+using namespace std;
+using namespace main_savitch_6B;
+
+namespace main_savitch_6B 
+{
+    template <class Item>
+    void set<Item>::insert(const Item& entry) 
+    {
+        if (count(entry) > 0)
+        {
+            cout << "\nEntry is already in the bag.\n";
+        }
+        else
+        {
+           bag<Item>::insert(entry);
+        }
+    }
+
+    template <class Item>
+    void set<Item>::clear()
+    {
+        node<Item> *remove_ptr;
+
+        // delete the moving front of the list, until there is not list left
+        while(head_ptr != NULL)
+        {
+            remove_ptr = head_ptr;
+            head_ptr = head_ptr->link();
+            delete remove_ptr; 
+      

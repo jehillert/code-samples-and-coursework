@@ -1,0 +1,18 @@
+# Author: John Hillert
+# Date: 9/30/02
+# Description: This is a makefile for lab6.
+# It compiles printq which uses node2.h 
+
+CXX = g++
+CXXFLAGS = -g -c
+LD = g++
+LDFLAGS = -g -Wl,-LD_MSG:off=84
+ 
+lab6: printq.o 
+	${LD} ${LDFLAGS} printq.o -o printq 
+
+printq.o: printq.cpp 
+	${CXX} ${CXXFLAGS} printq.cpp 
+
+clean:
+	rm 
